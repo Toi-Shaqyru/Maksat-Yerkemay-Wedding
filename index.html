@@ -76,156 +76,42 @@ input, textarea, select, button{
   font-display:swap;
 }
 
-/* ===== ШАҚЫРТУ ХАТТЫ АШУ АНИМАЦИЯСЫ ===== */
+/* ===== ШАҚЫРТУ ХАТЫН АШУ БЕТІ ===== */
 .invite-opening{
   position:fixed;
   inset:0;
-  z-index:10000;
-  min-height:100vh;
+  z-index:99999;
+  background:#f4f0e8;
   display:flex;
   align-items:center;
   justify-content:center;
   flex-direction:column;
-  background:#f4f0e8;
-  background-image:url("assets/bg/envelope.png");
-  background-repeat:no-repeat;
-  background-position:center;
-  background-size:min(86vw, 560px);
   cursor:pointer;
-  transition:opacity 0.9s ease, transform 0.9s ease, visibility 0.9s ease;
+  transition:opacity 1s ease, visibility 1s ease;
 }
 
-.invite-opening.hidden{
+.invite-opening.hide{
   opacity:0;
-  transform:scale(1.04);
   visibility:hidden;
   pointer-events:none;
 }
 
+.invite-envelope-img{
+  width:min(88vw, 560px);
+  height:auto;
+  display:block;
+  animation:envelopeFloat 2.4s ease-in-out infinite;
+}
+
 .opening-text{
-  position:absolute;
-  bottom:9vh;
-  padding:12px 22px;
-  border-radius:999px;
-  background:rgba(255,255,255,0.72);
+  margin-top:28px;
   color:#4d5420;
   font-family:"SecondaryFont", serif;
-  font-size:clamp(14px,3.5vw,22px);
+  font-size:clamp(15px,4vw,22px);
   letter-spacing:4px;
   text-transform:uppercase;
-  animation:openingPulse 1.8s ease-in-out infinite;
   text-align:center;
-}
-
-@keyframes openingPulse{
-  0%,100%{ opacity:0.58; transform:translateY(0); }
-  50%{ opacity:1; transform:translateY(-4px); }
-}
-
-.envelope-animation{
-  position:fixed;
-  inset:0;
-  z-index:10001;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  background:#f4f0e8;
-  overflow:hidden;
-}
-
-.envelope-animation.active{
-  display:flex;
-}
-
-.animated-envelope{
-  width:min(78vw, 500px);
-  height:calc(min(78vw, 500px) * 0.62);
-  position:relative;
-  background:#65701f;
-  border-radius:6px;
-  box-shadow:0 25px 45px rgba(0,0,0,0.18);
-  transform-style:preserve-3d;
-}
-
-.animated-card{
-  position:absolute;
-  width:82%;
-  height:112%;
-  left:9%;
-  bottom:10%;
-  background:#f7f2e7;
-  border-radius:14px;
-  z-index:1;
-  box-shadow:0 10px 25px rgba(0,0,0,0.12);
-  transform:translateY(28%);
-  transition:transform 1.4s ease-in-out 0.55s;
-}
-
-.animated-flap{
-  position:absolute;
-  inset:0;
-  background:#707927;
-  clip-path:polygon(0 0, 100% 0, 50% 62%);
-  transform-origin:top center;
-  transition:transform 1.3s ease-in-out;
-  z-index:4;
-}
-
-.animated-left-fold,
-.animated-right-fold{
-  position:absolute;
-  inset:0;
-  background:#5b661c;
-  z-index:2;
-}
-
-.animated-left-fold{
-  clip-path:polygon(0 0, 50% 50%, 0 100%);
-}
-
-.animated-right-fold{
-  clip-path:polygon(100% 0, 50% 50%, 100% 100%);
-}
-
-.animated-bottom-fold{
-  position:absolute;
-  inset:0;
-  background:#687321;
-  clip-path:polygon(0 100%, 50% 45%, 100% 100%);
-  z-index:3;
-}
-
-.animated-seal{
-  position:absolute;
-  width:92px;
-  height:92px;
-  border-radius:50%;
-  background:#efe9dc;
-  color:#4d5420;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-family:"PrimaryFont", Georgia, serif;
-  font-size:clamp(28px,6vw,42px);
-  z-index:6;
-  left:50%;
-  top:50%;
-  transform:translate(-50%, -50%);
-  box-shadow:0 6px 14px rgba(0,0,0,0.18);
-  transition:opacity 0.6s ease, transform 0.8s ease;
-}
-
-.animated-envelope.open .animated-flap{
-  transform:rotateX(180deg);
-}
-
-.animated-envelope.open .animated-seal{
-  opacity:0;
-  transform:translate(-50%, -50%) scale(0.65);
-}
-
-.animated-envelope.open .animated-card{
-  transform:translateY(-68%);
+  animation:pulseText 1.6s ease-in-out infinite;
 }
 
 .site-content{
@@ -235,6 +121,16 @@ input, textarea, select, button{
 
 .site-content.show{
   opacity:1;
+}
+
+@keyframes envelopeFloat{
+  0%,100%{ transform:translateY(0) scale(1); }
+  50%{ transform:translateY(-8px) scale(1.015); }
+}
+
+@keyframes pulseText{
+  0%,100%{ opacity:.55; }
+  50%{ opacity:1; }
 }
 
 /* ===== HERO ===== */
@@ -819,18 +715,8 @@ input, textarea, select, button{
 <body>
 
 <div class="invite-opening" id="inviteOpening" role="button" tabindex="0" aria-label="Шақырту хатын ашу">
+  <img src="assets/bg/envelope.png" class="invite-envelope-img" alt="Шақырту хаты">
   <div class="opening-text">ШАҚЫРТУ ХАТЫН АШУ</div>
-</div>
-
-<div class="envelope-animation" id="envelopeAnimation" aria-hidden="true">
-  <div class="animated-envelope" id="animatedEnvelope">
-    <div class="animated-card"></div>
-    <div class="animated-flap"></div>
-    <div class="animated-left-fold"></div>
-    <div class="animated-right-fold"></div>
-    <div class="animated-bottom-fold"></div>
-    <div class="animated-seal">M&Y</div>
-  </div>
 </div>
 
 <div class="site-content" id="siteContent">
@@ -1028,25 +914,15 @@ input, textarea, select, button{
 const scriptURL = "https://script.google.com/macros/s/AKfycbzLgSU-FFUckggCxVGP-r16wovrKfZdqVNbwF5e4QtgkIe1TGqAd589VWK58BetfikkJg/exec";
 
 const inviteOpening = document.getElementById("inviteOpening");
-const envelopeAnimation = document.getElementById("envelopeAnimation");
-const animatedEnvelope = document.getElementById("animatedEnvelope");
 const siteContent = document.getElementById("siteContent");
 
 function openInvitation(){
-  inviteOpening.classList.add("hidden");
-  envelopeAnimation.classList.add("active");
-  envelopeAnimation.setAttribute("aria-hidden", "false");
+  inviteOpening.classList.add("hide");
 
   setTimeout(function(){
-    animatedEnvelope.classList.add("open");
-  }, 350);
-
-  setTimeout(function(){
-    envelopeAnimation.classList.remove("active");
-    envelopeAnimation.setAttribute("aria-hidden", "true");
     siteContent.classList.add("show");
-    window.scrollTo({ top: 0, behavior: "instant" });
-  }, 2650);
+    window.scrollTo(0, 0);
+  }, 700);
 }
 
 inviteOpening.addEventListener("click", openInvitation);
