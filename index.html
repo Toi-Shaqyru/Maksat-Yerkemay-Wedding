@@ -1,31 +1,30 @@
 <!doctype html>
 <html lang="kk">
 <head>
-  
+
 <!-- ===== SEO + Social Preview ===== -->
 
 <title>Мақсат & Еркемай | Үйлену тойы</title>
-<meta name="description" content="26.03.2026 • Астана қаласы • Сіздерді тойда күтеміз">
+<meta name="description" content="22.08.2026 • Астана қаласы • Сіздерді тойда күтеміз">
 
-<!-- Open Graph (WhatsApp / Telegram / Facebook) -->
 <meta property="og:title" content="Мақсат & Еркемай | Үйлену тойы">
 <meta property="og:description" content="22.08.2026 • Астана қаласы • Сіздерді тойда күтеміз">
-<meta property="og:image" content="https://toi-shaqyru.github.io/Maksat-Yerkemay-Wedding/assets/preview.jpg">
+<meta property="og:image" content="https://toi-shaqyru.github.io/Maksat-Yerkemay-Wedding/assets/preview.png">
 <meta property="og:url" content="https://toi-shaqyru.github.io/Maksat-Yerkemay-Wedding/">
 <meta property="og:type" content="website">
 
-<!-- Размер картинки -->
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 
-<!-- Twitter (на всякий случай) -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Мақсат & Еркемай | Үйлену тойы">
 <meta name="twitter:description" content="22.08.2026 • Астана қаласы">
-<meta name="twitter:image" content="https://toi-shaqyru.github.io/Maksat-Yerkemay-Wedding/assets/preview.jpg">
-  
+<meta name="twitter:image" content="https://toi-shaqyru.github.io/Maksat-Yerkemay-Wedding/assets/preview.png">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-/* ================= MOBILE STABILITY FIX (iOS Safari) ================= */
 html, body{
   width:100%;
   height:100%;
@@ -49,6 +48,9 @@ html, body{
 
 body{
   min-height: var(--app-height);
+  background:#000;
+  color:#fff;
+  font-family:"PrimaryFont", serif;
 }
 
 input, textarea, select, button{
@@ -59,13 +61,6 @@ input, textarea, select, button{
 *{
   -webkit-tap-highlight-color: transparent;
 }
-</style>
-  
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Бақжан Мерей</title>
-
-<style>
 
 /* ===== ШРИФТЫ ===== */
 @font-face{
@@ -80,14 +75,6 @@ input, textarea, select, button{
   font-display:swap;
 }
 
-/* ===== БАЗА ===== */
-body{
-  margin:0;
-  background:#000;
-  color:#fff;
-  font-family:"PrimaryFont", serif;
-}
-
 /* ===== HERO ===== */
 .hero{
   position:relative;
@@ -98,22 +85,14 @@ body{
   padding:60px 20px;
   overflow:hidden;
   text-align:center;
-}
-
-.hero video{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  z-index:-2;
+  background:url("assets/bg/hero.png") center/cover no-repeat;
 }
 
 .overlay{
   position:absolute;
   inset:0;
   background:rgba(0,0,0,0.45);
-  z-index:-1;
+  z-index:0;
 }
 
 .hero-content{
@@ -133,53 +112,27 @@ body{
 .sub-title{
   margin-top:18px;
   font-family:"SecondaryFont", serif;
-  font-size:clamp(18px,4.5vw,28px); /* 28 максимум */
+  font-size:clamp(18px,4.5vw,28px);
   letter-spacing:6px;
   text-transform:uppercase;
   opacity:0.92;
 }
 
-</style>
-</head>
-
-<body>
-
-<header class="hero">
-
-  <video autoplay muted loop playsinline preload="none">
-    <source src="assets/bg/hero.mp4" type="video/mp4">
-  </video>
-
-  <div class="overlay"></div>
-
-  <div class="hero-content">
-    <h1 class="main-title">Мақсат Еркемай</h1>
-    <div class="sub-title">ҮЙЛЕНУ ТОЙЫ</div>
-  </div>
-
-</header>
-
-</body>
-</html>
-
-<!-- ================= SECTION 1 ================= -->
-
-<style>
+/* ================= SECTION 1 ================= */
 .section1{
   position:relative;
   min-height: var(--app-height);
-  background:url("assets/bg/section1_bg.jpg") center/cover no-repeat; /* 👈 JPG */
+  background:url("assets/bg/section1_bg.png") center/cover no-repeat;
   display:flex;
   align-items:flex-start;
   justify-content:center;
-  padding-top:9vh; /* 👈 было 12vh, теперь выше */
+  padding-top:9vh;
   padding-left:20px;
   padding-right:20px;
   text-align:center;
   color:#000;
 }
 
-/* Белый overlay */
 .section1::before{
   content:"";
   position:absolute;
@@ -195,64 +148,27 @@ body{
   width:100%;
 }
 
-/* ===== PRIMARY ===== */
 .s1-primary{
   font-family:"PrimaryFont", serif;
   font-size:clamp(42px,8.8vw,72px);
-  line-height:1.05; /* 👈 было 1.1, теперь плотнее */
+  line-height:1.05;
   margin:0;
 }
 
-/* ===== SECONDARY ===== */
 .s1-secondary{
   font-family:"SecondaryFont", serif;
   font-size:clamp(18px,4.5vw,28px);
   letter-spacing:4px;
   text-transform:uppercase;
-  line-height:1.15; /* 👈 плотнее */
+  line-height:1.15;
   margin:0;
 }
 
-/* Отступы между группами */
 .group{
-  margin-top:22px; /* 👈 было 28px */
+  margin-top:22px;
 }
-</style>
 
-<section class="section1">
-  <div class="section1-content">
-
-    <div>
-      <p class="s1-primary">Құрметті</p>
-      <p class="s1-primary">қонақтар!</p>
-    </div>
-
-    <div class="group">
-      <p class="s1-secondary">СІЗДЕРДІ</p>
-      <p class="s1-secondary">БАЛАЛАРЫМЫЗ</p>
-    </div>
-
-    <div class="group">
-      <p class="s1-primary">Мақсат мен</p>
-      <p class="s1-primary">Еркемайдың</p>
-    </div>
-
-    <div class="group">
-      <p class="s1-secondary">ҮЙЛЕНУ ТОЙЫНА</p>
-      <p class="s1-secondary">АРНАЛҒАН</p>
-      <p class="s1-secondary">САЛТАНАТТЫ АҚ</p>
-      <p class="s1-secondary">ДАСТАРХАНЫМЫЗДЫҢ</p>
-      <p class="s1-secondary">ҚАДІРЛІ ҚОНАҒЫ</p>
-      <p class="s1-secondary">БОЛУҒА ШАҚЫРАМЫЗ!</p>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ================= SECTION 2 ================= -->
-
-<style>
+/* ================= SECTION 2 ================= */
 .section2{
   position:relative;
   min-height: var(--app-height);
@@ -281,9 +197,8 @@ body{
   max-width:900px;
 }
 
-/* 👇 Текст подняли выше */
 .section2-top{
-  margin-top:30vh; /* было 38vh */
+  margin-top:30vh;
 }
 
 .section2-bottom{
@@ -308,36 +223,11 @@ body{
   max-width:85vw;
 }
 
-@keyframes pulse{
-  0%   { transform:translate(-60%, -50%) scale(1); }
-  50%  { transform:translate(-60%, -50%) scale(1.15); }
-  100% { transform:translate(-60%, -50%) scale(1); }
-}
-
-</style>
-
-<section class="section2">
-
-  <div class="section2-content section2-top">
-    <p class="primary-text">Той салтанаты:</p>
-    <p class="primary-text">22.08.2026</p>
-  </div>
-
-  <div class="section2-content section2-bottom">
-    <div class="calendar-wrapper">
-      <img src="assets/bg/calendar.png" loading="lazy" decoding="async" class="calendar-img" alt="calendar">
-    </div>
-  </div>
-
-</section>
-
-<!-- ================= SECTION 3 ================= -->
-
-<style>
+/* ================= SECTION 3 ================= */
 .section3{
   position:relative;
   min-height: var(--app-height);
-  background:url("assets/bg/section3_bg.jpg") center/cover no-repeat;
+  background:url("assets/bg/section3_bg.png") center/cover no-repeat;
   display:flex;
   align-items:flex-start;
   justify-content:center;
@@ -346,7 +236,6 @@ body{
   color:#fff;
 }
 
-/* чёрный overlay */
 .section3::before{
   content:"";
   position:absolute;
@@ -360,19 +249,9 @@ body{
   z-index:1;
   width:100%;
   max-width:900px;
-  margin-top:30vh; /* старт ~30% сверху */
+  margin-top:30vh;
 }
 
-/* общий Primary размер (как договорились) */
-.primary-text{
-  font-family:"PrimaryFont", serif;
-  font-size:clamp(42px,8.8vw,72px);
-  line-height:1.2;  /* 👈 увеличили */
-  padding-top:6px;  /* 👈 добавили воздух сверху */
-  margin:0;
-}
-
-/* общий Secondary размер (как договорились) */
 .secondary-text{
   font-family:"SecondaryFont", serif;
   font-size:clamp(18px,4.5vw,28px);
@@ -382,14 +261,13 @@ body{
   opacity:0.95;
 }
 
-/* строка времени с линиями */
 .time-row{
   display:flex;
   align-items:center;
   justify-content:center;
   gap:16px;
   margin-top:22px;
-  padding:0 5vw; /* линии не доходят до краёв ~5% */
+  padding:0 5vw;
 }
 
 .time-row .line{
@@ -400,35 +278,13 @@ body{
 
 .time-row .time{
   font-family:"PrimaryFont", serif;
-  font-size:clamp(34px,7.2vw,60px); /* чуть меньше, чем заголовок, но всё ещё primary */
+  font-size:clamp(34px,7.2vw,60px);
   letter-spacing:2px;
   line-height:1;
   white-space:nowrap;
 }
 
-/* отступ между блоками 18:00/19:00 */
-.block-gap{
-  margin-top:26px; /* "чуть больше" */
-}
-</style>
-
-<section class="section3">
-  <div class="section3-content">
-
-    <p class="primary-text">Бағдарлама:</p>
-
-    <!-- 18:00 -->
-    <div class="time-row">
-      <div class="line"></div>
-      <div class="time">18:00</div>
-      <div class="line"></div>
-    </div>
-    <p class="secondary-text">ТОЙ БАСТАЛУЫ</p>
-</section>
-
-<!-- ================= SECTION 4 ================= -->
-
-<style>
+/* ================= SECTION 4 ================= */
 .section4{
   position:relative;
   min-height: var(--app-height);
@@ -458,40 +314,36 @@ body{
   max-width:900px;
 }
 
-/* PRIMARY */
 .s4-primary{
   font-family:"PrimaryFont", serif;
   font-size:clamp(42px,8.8vw,72px);
-  line-height:1.15; /* чуть больше межстрочное */
+  line-height:1.15;
   margin:0;
 }
 
-/* SECONDARY */
 .s4-secondary{
   font-family:"SecondaryFont", serif;
   font-size:clamp(18px,4.5vw,28px);
   letter-spacing:5px;
   text-transform:uppercase;
-  line-height:1.25; /* чуть больше */
+  line-height:1.25;
   margin:12px 0 0 0;
 }
 
-/* Картинка ресторана (-20%) */
 .restraunt-img{
-  width:220px; /* было 280 */
+  width:220px;
   max-width:60vw;
   height:auto;
   margin:28px auto;
   display:block;
 }
 
-/* ===== КНОПКА ===== */
 .map-btn{
   position:relative;
   display:inline-flex;
   align-items:center;
   gap:14px;
-  margin-top:56px; /* кнопка ниже */
+  margin-top:56px;
   padding:14px 40px 14px 60px;
   border-radius:999px;
   background:#000;
@@ -502,11 +354,10 @@ body{
   letter-spacing:4px;
   text-transform:uppercase;
   overflow:hidden;
-  transition:all 0.4s ease;
 }
 
-/* Блеск */
-.map-btn::after{
+.map-btn::after,
+.submit-btn::after{
   content:"";
   position:absolute;
   top:0;
@@ -529,7 +380,6 @@ body{
   100% { left:120%; }
 }
 
-/* Иконка 2GIS */
 .map-btn img{
   position:absolute;
   left:8px;
@@ -539,35 +389,8 @@ body{
   border-radius:8px;
   object-fit:cover;
 }
-</style>
 
-<section class="section4">
-  <div class="section4-content">
-
-    <p class="s4-primary">Мекенжай:</p>
-
-    <img src="assets/bg/restraunt.png" class="restraunt-img" alt="Shymkent Hall">
-
-    <p class="s4-secondary">АСТАНА ҚАЛАСЫ</p>
-    <p class="s4-secondary">ТҰРАН ДАҢҒЫЛЫ, 25</p>
-
-    <p class="s4-primary" style="margin-top:22px;">Royal Ballroom</p>
-
-    <p class="s4-secondary">МЕЙРАМХАНАСЫ</p>
-
-    <a href="https://go.2gis.com/8DlXP" 
-       target="_blank" 
-       class="map-btn">
-        <img src="assets/bg/2gis.png" alt="2GIS">
-        КАРТАНЫ АШУ
-    </a>
-
-  </div>
-</section>
-
-<!-- ================= SECTION 5 ================= -->
-
-<style>
+/* ================= SECTION 5 ================= */
 .section5{
   position:relative;
   min-height: var(--app-height);
@@ -597,7 +420,6 @@ body{
   max-width:700px;
 }
 
-/* PRIMARY */
 .s5-primary{
   font-family:"PrimaryFont", serif;
   font-size:clamp(42px,8.8vw,72px);
@@ -605,7 +427,6 @@ body{
   margin:0;
 }
 
-/* SECONDARY */
 .s5-secondary{
   font-family:"SecondaryFont", serif;
   font-size:clamp(18px,4.5vw,28px);
@@ -621,7 +442,6 @@ body{
   gap:22px;
 }
 
-/* Поле имени: secondary + капс + больше размер */
 .rsvp-form input[type="text"]{
   padding:16px 20px;
   border-radius:12px;
@@ -669,30 +489,7 @@ body{
   overflow:hidden;
 }
 
-.submit-btn::after{
-  content:"";
-  position:absolute;
-  top:0;
-  left:-120%;
-  width:100%;
-  height:100%;
-  background:linear-gradient(
-    120deg,
-    rgba(255,255,255,0) 0%,
-    rgba(255,255,255,0.4) 50%,
-    rgba(255,255,255,0) 100%
-  );
-  transform:skewX(-20deg);
-  animation:shine 3s infinite;
-}
-
-@keyframes shine{
-  0% { left:-120%; }
-  60% { left:120%; }
-  100% { left:120%; }
-}
-
-/* ===== MODAL (оверлей + стеклянная карточка) ===== */
+/* ===== MODAL ===== */
 .modal{
   position:fixed;
   inset:0;
@@ -753,105 +550,12 @@ body{
   font-size:clamp(12px,3.4vw,16px);
   cursor:pointer;
 }
-</style>
 
-<section class="section5">
-  <div class="section5-content">
-
-    <p class="s5-primary">Тойға келетініңізді</p>
-    <p class="s5-primary">растауыңызды өтінеміз</p>
-
-    <!-- ВАЖНО: нет action/method -->
-    <form class="rsvp-form" id="rsvpForm">
-
-      <label class="s5-secondary">АТЫ-ЖӨНІҢІЗ</label>
-      <input type="text" name="Имя" required>
-
-      <label class="s5-secondary">ТОЙҒА КЕЛЕСІЗ БЕ?</label>
-
-      <div class="radio-group">
-        <label class="radio-option">
-          <input type="radio" name="Ответ" value="ӘРИНЕ КЕЛЕМІН" required>
-          ӘРИНЕ КЕЛЕМІН
-        </label>
-        <label class="radio-option">
-          <input type="radio" name="Ответ" value="ЖҰБАЙЫММЕН КЕЛЕМІН">
-          ЖҰБАЙЫММЕН КЕЛЕМІН
-        </label>
-        <label class="radio-option">
-          <input type="radio" name="Ответ" value="ӨКІНІШКЕ ОРАЙ, КЕЛЕ АЛМАЙМЫН">
-          ӨКІНІШКЕ ОРАЙ, КЕЛЕ АЛМАЙМЫН
-        </label>
-      </div>
-
-      <button type="submit" class="submit-btn">ЖІБЕРУ</button>
-    </form>
-
-  </div>
-</section>
-
-<!-- MODAL -->
-<div class="modal" id="successModal" aria-hidden="true">
-  <div class="modal-card" role="dialog" aria-modal="true">
-    <div class="modal-text">ЖАУАБЫҢЫЗ ҮШІН РАҚМЕТ</div>
-    <button class="modal-btn" id="closeModalBtn" type="button">ЖАБУ</button>
-  </div>
-</div>
-
-<script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbzLgSU-FFUckggCxVGP-r16wovrKfZdqVNbwF5e4QtgkIe1TGqAd589VWK58BetfikkJg/exec";
-
-const form = document.getElementById("rsvpForm");
-const modal = document.getElementById("successModal");
-const closeBtn = document.getElementById("closeModalBtn");
-
-function openModal(){
-  modal.classList.add("active");
-  modal.setAttribute("aria-hidden", "false");
-}
-
-function closeModal(){
-  modal.classList.remove("active");
-  modal.setAttribute("aria-hidden", "true");
-}
-
-form.addEventListener("submit", function(e){
-  e.preventDefault();
-
-  const formData = new FormData(form);
-
-  // Если CORS мешает читать ответ — не страшно, мы просто отправляем
-  fetch(scriptURL, {
-    method: "POST",
-    mode: "no-cors",
-    body: formData
-  });
-
-  openModal();
-  form.reset();
-});
-
-closeBtn.addEventListener("click", closeModal);
-
-// закрытие кликом по фону
-modal.addEventListener("click", function(e){
-  if(e.target === modal) closeModal();
-});
-
-// закрытие по ESC
-document.addEventListener("keydown", function(e){
-  if(e.key === "Escape") closeModal();
-});
-</script>
-
-
-<!-- ================= SECTION 6 (FINAL) ================= -->
-
-<style>
+/* ================= SECTION 6 ================= */
 .section6{
   position:relative;
   min-height: var(--app-height);
-  background:url("assets/bg/section6_bg.jpg") center/cover no-repeat;
+  background:url("assets/bg/section6_bg.png") center/cover no-repeat;
   display:flex;
   align-items:flex-start;
   justify-content:center;
@@ -877,7 +581,6 @@ document.addEventListener("keydown", function(e){
   max-width:1000px;
 }
 
-/* PRIMARY */
 .s6-primary{
   font-family:"PrimaryFont", serif;
   font-size:clamp(42px,8.8vw,72px);
@@ -886,7 +589,6 @@ document.addEventListener("keydown", function(e){
   color:#fff;
 }
 
-/* SECONDARY */
 .s6-secondary{
   font-family:"SecondaryFont", serif;
   font-size:clamp(18px,4.5vw,28px);
@@ -898,7 +600,6 @@ document.addEventListener("keydown", function(e){
   opacity:0.95;
 }
 
-/* ===== Таймер ===== */
 .timer{
   margin-top:36px;
   display:flex;
@@ -937,12 +638,10 @@ document.addEventListener("keydown", function(e){
   padding-bottom:22px;
 }
 
-/* ⬇️ Отступ увеличили в 2 раза */
 .s6-gap{
-  margin-top:140px; /* было 70px */
+  margin-top:140px;
 }
 
-/* Блок имён */
 .names-block{
   margin-top:22px;
 }
@@ -953,6 +652,144 @@ document.addEventListener("keydown", function(e){
   margin:10px 0;
 }
 </style>
+</head>
+
+<body>
+
+<header class="hero">
+  <div class="overlay"></div>
+
+  <div class="hero-content">
+    <h1 class="main-title">Мақсат Еркемай</h1>
+    <div class="sub-title">ҮЙЛЕНУ ТОЙЫ</div>
+  </div>
+</header>
+
+<section class="section1">
+  <div class="section1-content">
+
+    <div>
+      <p class="s1-primary">Құрметті</p>
+      <p class="s1-primary">қонақтар!</p>
+    </div>
+
+    <div class="group">
+      <p class="s1-secondary">СІЗДЕРДІ</p>
+      <p class="s1-secondary">БАЛАЛАРЫМЫЗ</p>
+    </div>
+
+    <div class="group">
+      <p class="s1-primary">Мақсат мен</p>
+      <p class="s1-primary">Еркемайдың</p>
+    </div>
+
+    <div class="group">
+      <p class="s1-secondary">ҮЙЛЕНУ ТОЙЫНА</p>
+      <p class="s1-secondary">АРНАЛҒАН</p>
+      <p class="s1-secondary">САЛТАНАТТЫ АҚ</p>
+      <p class="s1-secondary">ДАСТАРХАНЫМЫЗДЫҢ</p>
+      <p class="s1-secondary">ҚАДІРЛІ ҚОНАҒЫ</p>
+      <p class="s1-secondary">БОЛУҒА ШАҚЫРАМЫЗ!</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="section2">
+
+  <div class="section2-content section2-top">
+    <p class="primary-text">Той салтанаты:</p>
+    <p class="primary-text">22.08.2026</p>
+  </div>
+
+  <div class="section2-content section2-bottom">
+    <div class="calendar-wrapper">
+      <img src="assets/bg/calendar.png" loading="lazy" decoding="async" class="calendar-img" alt="calendar">
+    </div>
+  </div>
+
+</section>
+
+<section class="section3">
+  <div class="section3-content">
+
+    <p class="primary-text">Бағдарлама:</p>
+
+    <div class="time-row">
+      <div class="line"></div>
+      <div class="time">18:00</div>
+      <div class="line"></div>
+    </div>
+
+    <p class="secondary-text">ТОЙ БАСТАЛУЫ</p>
+
+  </div>
+</section>
+
+<section class="section4">
+  <div class="section4-content">
+
+    <p class="s4-primary">Мекенжай:</p>
+
+    <img src="assets/bg/restraunt.png" class="restraunt-img" alt="Royal Ballroom">
+
+    <p class="s4-secondary">АСТАНА ҚАЛАСЫ</p>
+    <p class="s4-secondary">ТҰРАН ДАҢҒЫЛЫ, 25</p>
+
+    <p class="s4-primary" style="margin-top:22px;">Royal Ballroom</p>
+
+    <p class="s4-secondary">МЕЙРАМХАНАСЫ</p>
+
+    <a href="https://go.2gis.com/8DlXP" target="_blank" class="map-btn">
+      <img src="assets/bg/2gis.png" alt="2GIS">
+      КАРТАНЫ АШУ
+    </a>
+
+  </div>
+</section>
+
+<section class="section5">
+  <div class="section5-content">
+
+    <p class="s5-primary">Тойға келетініңізді</p>
+    <p class="s5-primary">растауыңызды өтінеміз</p>
+
+    <form class="rsvp-form" id="rsvpForm">
+
+      <label class="s5-secondary">АТЫ-ЖӨНІҢІЗ</label>
+      <input type="text" name="Имя" required>
+
+      <label class="s5-secondary">ТОЙҒА КЕЛЕСІЗ БЕ?</label>
+
+      <div class="radio-group">
+        <label class="radio-option">
+          <input type="radio" name="Ответ" value="ӘРИНЕ КЕЛЕМІН" required>
+          ӘРИНЕ КЕЛЕМІН
+        </label>
+
+        <label class="radio-option">
+          <input type="radio" name="Ответ" value="ЖҰБАЙЫММЕН КЕЛЕМІН">
+          ЖҰБАЙЫММЕН КЕЛЕМІН
+        </label>
+
+        <label class="radio-option">
+          <input type="radio" name="Ответ" value="ӨКІНІШКЕ ОРАЙ, КЕЛЕ АЛМАЙМЫН">
+          ӨКІНІШКЕ ОРАЙ, КЕЛЕ АЛМАЙМЫН
+        </label>
+      </div>
+
+      <button type="submit" class="submit-btn">ЖІБЕРУ</button>
+    </form>
+
+  </div>
+</section>
+
+<div class="modal" id="successModal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true">
+    <div class="modal-text">ЖАУАБЫҢЫЗ ҮШІН РАҚМЕТ</div>
+    <button class="modal-btn" id="closeModalBtn" type="button">ЖАБУ</button>
+  </div>
+</div>
 
 <section class="section6">
   <div class="section6-content">
@@ -1007,6 +844,47 @@ document.addEventListener("keydown", function(e){
 </section>
 
 <script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbzLgSU-FFUckggCxVGP-r16wovrKfZdqVNbwF5e4QtgkIe1TGqAd589VWK58BetfikkJg/exec";
+
+const form = document.getElementById("rsvpForm");
+const modal = document.getElementById("successModal");
+const closeBtn = document.getElementById("closeModalBtn");
+
+function openModal(){
+  modal.classList.add("active");
+  modal.setAttribute("aria-hidden", "false");
+}
+
+function closeModal(){
+  modal.classList.remove("active");
+  modal.setAttribute("aria-hidden", "true");
+}
+
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const formData = new FormData(form);
+
+  fetch(scriptURL, {
+    method: "POST",
+    mode: "no-cors",
+    body: formData
+  });
+
+  openModal();
+  form.reset();
+});
+
+closeBtn.addEventListener("click", closeModal);
+
+modal.addEventListener("click", function(e){
+  if(e.target === modal) closeModal();
+});
+
+document.addEventListener("keydown", function(e){
+  if(e.key === "Escape") closeModal();
+});
+
 (function(){
   const target = new Date(2026, 7, 22, 18, 0, 0);
 
@@ -1041,190 +919,5 @@ document.addEventListener("keydown", function(e){
 })();
 </script>
 
-
-<!-- ===== BACKGROUND MUSIC ===== -->
-<audio id="bgMusic" preload="none" loop playsinline>
-  <source src="assets/bg/music_bg.mp3" type="audio/mpeg">
-</audio>
-
-<style>
-.entry-overlay{
-  position:fixed;
-  inset:0;
-  z-index:10000;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:rgba(0,0,0,0.70);
-  backdrop-filter: blur(8px);
-  transition: opacity .55s ease, visibility .55s ease;
-}
-.entry-overlay.hidden{
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none;
-}
-
-.envelope-wrap{
-  width:min(360px, 86vw);
-  aspect-ratio: 4 / 3;
-  position:relative;
-  transform:translateZ(0);
-  user-select:none;
-}
-.envelope{
-  position:absolute;
-  inset:0;
-  border-radius:22px;
-  background:rgba(255,255,255,0.10);
-  border:1px solid rgba(255,255,255,0.22);
-  box-shadow:0 22px 65px rgba(0,0,0,0.45);
-  overflow:hidden;
-}
-
-.env-front-left,
-.env-front-right{
-  position:absolute;
-  bottom:-10%;
-  width:60%;
-  height:70%;
-  background:rgba(255,255,255,0.14);
-  transform:rotate(45deg);
-}
-.env-front-left{ left:-20%; }
-.env-front-right{ right:-20%; }
-
-.env-flap{
-  position:absolute;
-  left:0; right:0; top:0;
-  height:55%;
-  transform-origin: top center;
-  background:linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0.10));
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
-  border-top-left-radius:22px;
-  border-top-right-radius:22px;
-  border:1px solid rgba(255,255,255,0.18);
-  border-bottom:none;
-  transform:rotateX(0deg);
-  transition: transform .7s cubic-bezier(.2,.9,.2,1);
-}
-
-.letter{
-  position:absolute;
-  left:7%;
-  right:7%;
-  bottom:10%;
-  height:70%;
-  border-radius:18px;
-  background:rgba(255,255,255,0.85);
-  box-shadow:0 12px 35px rgba(0,0,0,0.25);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:18px;
-  transform:translateY(18%);
-  transition: transform .7s cubic-bezier(.2,.9,.2,1), opacity .35s ease;
-}
-
-.letter-text{
-  font-family:"PrimaryFont", serif;
-  font-size:clamp(28px,6.5vw,46px);
-  color:#000;
-  text-align:center;
-  line-height:1.05;
-}
-
-.tap-hint{
-  margin-top:18px;
-  font-family:"SecondaryFont", serif;
-  font-size:clamp(12px,3.4vw,16px);
-  letter-spacing:4px;
-  text-transform:uppercase;
-  color:rgba(255,255,255,0.85);
-  text-align:center;
-}
-
-.entry-overlay.opening .env-flap{
-  transform:rotateX(165deg);
-}
-.entry-overlay.opening .letter{
-  transform:translateY(-12%);
-}
-
-@media (prefers-reduced-motion: reduce){
-  .env-flap, .letter, .entry-overlay{ transition:none !important; }
-}
-</style>
-
-<div class="entry-overlay" id="entryOverlay">
-  <div>
-    <div class="envelope-wrap">
-      <div class="envelope">
-        <div class="env-flap"></div>
-        <div class="env-front-left"></div>
-        <div class="env-front-right"></div>
-        <div class="letter">
-          <div class="letter-text">Шақыру хатты ашу</div>
-        </div>
-      </div>
-    </div>
-    <div class="tap-hint">ТҮРТІҢІЗ</div>
-  </div>
-</div>
-
-<script>
-(function(){
-  const overlay = document.getElementById("entryOverlay");
-  const audio = document.getElementById("bgMusic");
-  let started = false;
-
-  function fadeInAudio(aud, targetVol=0.75, ms=1600){
-    aud.volume = 0;
-    const steps = 30;
-    const stepMs = ms / steps;
-    let i = 0;
-    const t = setInterval(() => {
-      i++;
-      aud.volume = Math.min(targetVol, (targetVol * i) / steps);
-      if(i >= steps) clearInterval(t);
-    }, stepMs);
-  }
-
-  async function startExperience(){
-    if(started) return;
-    started = true;
-
-    overlay.classList.add("opening");
-
-    try{
-      audio.currentTime = 0;
-      await audio.play();            // запускаем строго по жесту
-      fadeInAudio(audio, 0.75, 1600);
-    }catch(err){
-      console.log("Audio blocked:", err);
-    }
-
-    setTimeout(() => {
-      overlay.classList.add("hidden");
-    }, 750);
-
-    document.removeEventListener("click", startExperience);
-    document.removeEventListener("touchstart", startExperience);
-  }
-
-  document.addEventListener("click", startExperience, { passive:true });
-  document.addEventListener("touchstart", startExperience, { passive:true });
-})();
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
+</body>
+</html>
