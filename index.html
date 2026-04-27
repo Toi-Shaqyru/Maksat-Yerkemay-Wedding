@@ -165,6 +165,18 @@ input, textarea, select, button{
   font-size:clamp(42px,8.8vw,72px);
   letter-spacing:4px;
   color:#000;
+  line-height:1.05;
+}
+
+.hero-name{
+  display:block;
+}
+
+.hero-amp{
+  display:block;
+  font-size:clamp(36px,7vw,60px);
+  line-height:1;
+  margin:8px 0;
 }
 
 .sub-title{
@@ -261,7 +273,7 @@ input, textarea, select, button{
 }
 
 .section2-bottom{
-  margin-bottom:26vh;
+  margin-bottom:24vh;
   position:relative;
 }
 
@@ -278,8 +290,8 @@ input, textarea, select, button{
 }
 
 .calendar-img{
-  width:415px;
-  max-width:85vw;
+  width:480px;
+  max-width:94vw;
 }
 
 /* ================= SECTION 3 ================= */
@@ -402,7 +414,7 @@ input, textarea, select, button{
   display:inline-flex;
   align-items:center;
   gap:14px;
-  margin-top:56px;
+  margin-top:28px;
   padding:14px 40px 14px 60px;
   border-radius:999px;
   background:#000;
@@ -728,7 +740,11 @@ input, textarea, select, button{
   <div class="overlay"></div>
 
   <div class="hero-content">
-    <h1 class="main-title">Мақсат Еркемай</h1>
+    <h1 class="main-title">
+      <span class="hero-name">Мақсат</span>
+      <span class="hero-amp">&</span>
+      <span class="hero-name">Еркемай</span>
+    </h1>
     <div class="sub-title">ҮЙЛЕНУ ТОЙЫ</div>
   </div>
 </header>
@@ -913,13 +929,34 @@ input, textarea, select, button{
 
 </div>
 
+<audio id="bgMusic" preload="auto" loop playsinline>
+  <source src="assets/bg/music_bg.mp3" type="audio/mpeg">
+</audio>
+
 <script>
 const scriptURL = "https://script.google.com/macros/s/AKfycbzLgSU-FFUckggCxVGP-r16wovrKfZdqVNbwF5e4QtgkIe1TGqAd589VWK58BetfikkJg/exec";
 
 const inviteOpening = document.getElementById("inviteOpening");
 const siteContent = document.getElementById("siteContent");
+const bgMusic = document.getElementById("bgMusic");
+
+function playMusic(){
+  if(!bgMusic) return;
+
+  bgMusic.volume = 0.6;
+
+  const playPromise = bgMusic.play();
+
+  if(playPromise !== undefined){
+    playPromise.catch(function(){
+      console.log("Music autoplay was blocked by browser.");
+    });
+  }
+}
 
 function openInvitation(){
+  playMusic();
+
   inviteOpening.classList.add("hide");
 
   setTimeout(function(){
@@ -1011,7 +1048,3 @@ document.addEventListener("keydown", function(e){
 
 </body>
 </html>
-<!-- ===== BACKGROUND MUSIC ===== -->
-<audio id="bgMusic" preload="none" loop playsinline>
-  <source src="assets/bg/music_bg.mp3" type="audio/mpeg">
-</audio>
