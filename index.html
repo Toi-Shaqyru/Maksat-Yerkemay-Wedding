@@ -81,13 +81,20 @@ input, textarea, select, button{
   position:fixed;
   inset:0;
   z-index:99999;
-  background:#f4f0e8;
+  background:url("assets/bg/opening_bg.png") center/cover no-repeat;
   display:flex;
   align-items:center;
   justify-content:center;
-  flex-direction:column;
   cursor:pointer;
-  transition:opacity 1s ease, visibility 1s ease;
+  transition:opacity 1.2s ease, visibility 1.2s ease;
+}
+
+.invite-opening::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.25);
+  z-index:0;
 }
 
 .invite-opening.hide{
@@ -97,35 +104,43 @@ input, textarea, select, button{
 }
 
 .invite-envelope-img{
-  width:min(88vw, 560px);
+  position:relative;
+  z-index:1;
+  width:min(70vw, 420px);
   height:auto;
   display:block;
-  animation:envelopeFloat 2.4s ease-in-out infinite;
+  animation:envelopePulse 1.8s ease-in-out infinite;
+  filter:drop-shadow(0 10px 30px rgba(0,0,0,0.35));
 }
 
 .opening-text{
-  margin-top:28px;
-  color:#4d5420;
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:8vh;
+  z-index:1;
+  color:#fff;
   font-family:"SecondaryFont", serif;
   font-size:clamp(15px,4vw,22px);
-  letter-spacing:4px;
+  letter-spacing:5px;
   text-transform:uppercase;
   text-align:center;
-  animation:pulseText 1.6s ease-in-out infinite;
+  text-shadow:0 2px 12px rgba(0,0,0,0.5);
+  animation:pulseText 1.8s ease-in-out infinite;
 }
 
 .site-content{
   opacity:0;
-  transition:opacity 1s ease;
+  transition:opacity 1.2s ease;
 }
 
 .site-content.show{
   opacity:1;
 }
 
-@keyframes envelopeFloat{
-  0%,100%{ transform:translateY(0) scale(1); }
-  50%{ transform:translateY(-8px) scale(1.015); }
+@keyframes envelopePulse{
+  0%,100%{ transform:scale(1); }
+  50%{ transform:scale(1.08); }
 }
 
 @keyframes pulseText{
@@ -157,36 +172,6 @@ input, textarea, select, button{
   z-index:1;
   width:100%;
   max-width:900px;
-}
-
-.main-title{
-  margin:0;
-  font-family:"PrimaryFont", serif;
-  font-size:clamp(42px,8.8vw,72px);
-  letter-spacing:4px;
-  color:#000;
-  line-height:1.05;
-}
-
-.hero-name{
-  display:block;
-}
-
-.hero-amp{
-  display:block;
-  font-size:clamp(36px,7vw,60px);
-  line-height:1;
-  margin:8px 0;
-}
-
-.sub-title{
-  margin-top:18px;
-  font-family:"SecondaryFont", serif;
-  font-size:clamp(18px,4.5vw,28px);
-  letter-spacing:6px;
-  text-transform:uppercase;
-  opacity:0.92;
-  color:#000;
 }
 
 /* ================= SECTION 1 ================= */
@@ -740,12 +725,6 @@ input, textarea, select, button{
   <div class="overlay"></div>
 
   <div class="hero-content">
-    <h1 class="main-title">
-      <span class="hero-name">Мақсат</span>
-      <span class="hero-amp">&</span>
-      <span class="hero-name">Еркемай</span>
-    </h1>
-    <div class="sub-title">ҮЙЛЕНУ ТОЙЫ</div>
   </div>
 </header>
 
@@ -957,12 +936,13 @@ function playMusic(){
 function openInvitation(){
   playMusic();
 
+  // Crossfade: site content fades in at the same time the opening fades out
+  siteContent.classList.add("show");
   inviteOpening.classList.add("hide");
 
   setTimeout(function(){
-    siteContent.classList.add("show");
     window.scrollTo(0, 0);
-  }, 700);
+  }, 1200);
 }
 
 inviteOpening.addEventListener("click", openInvitation);
