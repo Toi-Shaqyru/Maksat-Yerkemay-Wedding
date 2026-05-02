@@ -89,7 +89,7 @@ input, textarea, select, button{
   align-items:flex-end;
   justify-content:center;
   cursor:pointer;
-  transition:opacity 1.2s ease, visibility 1.2s ease;
+  transition:opacity 2s ease, visibility 2s ease;
 }
 
 /* Фоновая фотография на весь экран + пульсация */
@@ -139,7 +139,7 @@ input, textarea, select, button{
 
 .site-content{
   opacity:0;
-  transition:opacity 1.2s ease;
+  transition:opacity 2s ease;
 }
 
 .site-content.show{
@@ -164,11 +164,71 @@ input, textarea, select, button{
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:60px 20px;
+  padding:0;
   overflow:hidden;
   text-align:center;
-  background:url("assets/bg/Hero.mp4") center/cover no-repeat;
+  background:#000;
   color:#000;
+}
+
+/* Размытая копия фото — заполняет края, чтобы не было пустых полос */
+.hero-bg-blur{
+  position:absolute;
+  inset:-8%;
+  background:url("assets/bg/Hero.png") center/cover no-repeat;
+  filter:blur(32px) brightness(0.85);
+  transform:scale(1.2);
+  opacity:0;
+  z-index:0;
+  will-change:transform, opacity;
+}
+
+/* Чёткое фото целиком (contain — ничего не обрезается) */
+.hero-bg-image{
+  position:absolute;
+  inset:0;
+  background:url("assets/bg/Hero.png") center/contain no-repeat;
+  transform:scale(1.12);
+  opacity:0;
+  z-index:1;
+  will-change:transform, opacity, filter;
+}
+
+/* Запуск анимаций строго после клика на конверте */
+.site-content.show .hero-bg-blur{
+  animation:heroBlurEntrance 3.6s cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s forwards;
+}
+
+.site-content.show .hero-bg-image{
+  animation:heroImageEntrance 3.6s cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s forwards;
+}
+
+@keyframes heroBlurEntrance{
+  0%{
+    transform:scale(1.25);
+    opacity:0;
+  }
+  100%{
+    transform:scale(1.1);
+    opacity:1;
+  }
+}
+
+@keyframes heroImageEntrance{
+  0%{
+    transform:scale(1.12);
+    opacity:0;
+    filter:blur(8px);
+  }
+  60%{
+    opacity:1;
+    filter:blur(0);
+  }
+  100%{
+    transform:scale(1);
+    opacity:1;
+    filter:blur(0);
+  }
 }
 
 .overlay{
@@ -177,7 +237,7 @@ input, textarea, select, button{
 
 .hero-content{
   position:relative;
-  z-index:1;
+  z-index:2;
   width:100%;
   max-width:900px;
 }
@@ -729,6 +789,9 @@ input, textarea, select, button{
 <div class="site-content" id="siteContent">
 
 <header class="hero">
+  <div class="hero-bg-blur"></div>
+  <div class="hero-bg-image"></div>
+
   <div class="overlay"></div>
 
   <div class="hero-content">
@@ -949,7 +1012,7 @@ function openInvitation(){
 
   setTimeout(function(){
     window.scrollTo(0, 0);
-  }, 1200);
+  }, 2000);
 }
 
 inviteOpening.addEventListener("click", openInvitation);
