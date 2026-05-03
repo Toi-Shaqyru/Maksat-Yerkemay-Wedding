@@ -281,7 +281,7 @@ input, textarea, select, button{
 .s1-secondary{
   font-family:"SecondaryFont", serif;
   font-size:clamp(18px,4.5vw,28px);
-  letter-spacing:0.5px;
+  letter-spacing:2px;
   text-transform:uppercase;
   line-height:1.15;
   margin:0;
@@ -351,35 +351,7 @@ input, textarea, select, button{
   max-width:94vw;
 }
 
-/* ================= SECTION 3 ================= */
-.section3{
-  position:relative;
-  min-height: var(--app-height);
-  background:url("assets/bg/section3_bg.png") center/cover no-repeat;
-  display:flex;
-  align-items:flex-start;
-  justify-content:center;
-  padding:0 20px;
-  text-align:center;
-  color:#fff;
-}
-
-.section3::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.45);
-  z-index:0;
-}
-
-.section3-content{
-  position:relative;
-  z-index:1;
-  width:100%;
-  max-width:900px;
-  margin-top:30vh;
-}
-
+/* ===== ВРЕМЯ И ПОДПИСЬ (используется внутри секции 2) ===== */
 .secondary-text{
   font-family:"SecondaryFont", serif;
   font-size:clamp(18px,4.5vw,28px);
@@ -400,7 +372,7 @@ input, textarea, select, button{
 
 .time-row .line{
   height:1px;
-  background:rgba(255,255,255,0.9);
+  background:rgba(0,0,0,0.7);
   flex:1;
 }
 
@@ -837,6 +809,16 @@ input, textarea, select, button{
   <div class="section2-content section2-top">
     <p class="primary-text">Той салтанаты:</p>
     <p class="primary-text">22.08.2026</p>
+
+    <div class="group">
+      <div class="time-row">
+        <div class="line"></div>
+        <div class="time">18:00</div>
+        <div class="line"></div>
+      </div>
+
+      <p class="secondary-text">ТОЙ БАСТАЛУЫ</p>
+    </div>
   </div>
 
   <div class="section2-content section2-bottom">
@@ -845,22 +827,6 @@ input, textarea, select, button{
     </div>
   </div>
 
-</section>
-
-<section class="section3">
-  <div class="section3-content">
-
-    <p class="primary-text">Бағдарлама:</p>
-
-    <div class="time-row">
-      <div class="line"></div>
-      <div class="time">18:00</div>
-      <div class="line"></div>
-    </div>
-
-    <p class="secondary-text">ТОЙ БАСТАЛУЫ</p>
-
-  </div>
 </section>
 
 <section class="section4">
