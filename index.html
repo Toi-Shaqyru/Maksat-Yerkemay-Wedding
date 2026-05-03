@@ -239,7 +239,11 @@ input, textarea, select, button{
 }
 
 .overlay{
-  display:none;
+  position:absolute;
+  inset:0;
+  background:rgba(255,255,255,0.40);
+  z-index:2;
+  pointer-events:none;
 }
 
 .hero-content{
@@ -401,13 +405,6 @@ input, textarea, select, button{
   color:#000;
 }
 
-.section4::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(255,255,255,0.40);
-  z-index:0;
-}
 
 .section4-content{
   position:relative;
@@ -445,15 +442,15 @@ input, textarea, select, button{
   align-items:center;
   gap:14px;
   margin-top:28px;
-  padding:14px 40px 14px 60px;
+  padding:10px 28px;
   border-radius:999px;
   background:#000;
   color:#fff;
   text-decoration:none;
   font-family:"SecondaryFont", serif;
-  font-size:clamp(14px,3.5vw,20px);
-  letter-spacing:4px;
-  text-transform:uppercase;
+  font-size:clamp(12px,3vw,16px);
+  letter-spacing:0.5px;
+  text-transform:lowercase;
   overflow:hidden;
 }
 
@@ -481,15 +478,6 @@ input, textarea, select, button{
   100% { left:120%; }
 }
 
-.map-btn img{
-  position:absolute;
-  left:8px;
-  height:100%;
-  max-height:42px;
-  width:auto;
-  border-radius:8px;
-  object-fit:cover;
-}
 
 /* ================= SECTION 5 ================= */
 .section5{
@@ -844,7 +832,6 @@ input, textarea, select, button{
     <p class="s4-secondary">мейрамханасы</p>
 
     <a href="https://go.2gis.com/8DlXP" target="_blank" class="map-btn">
-      <img src="assets/bg/2gis.png" alt="2GIS">
       картаны ашу
     </a>
 
