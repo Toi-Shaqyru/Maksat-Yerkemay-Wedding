@@ -335,18 +335,22 @@ input, textarea, select, button{
 }
 
 .section2-divider{
-  position:relative;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
   z-index:1;
   width:100%;
   max-width:900px;
   padding:0 5vw;
+  pointer-events:none;
 }
 .section2-divider::before{
   content:"";
   display:block;
   height:1px;
   background:rgba(0,0,0,0.7);
-}  
+}
   
 .primary-text{
   font-family:"PrimaryFont", serif;
