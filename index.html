@@ -334,6 +334,20 @@ input, textarea, select, button{
   position:relative;
 }
 
+.section2-divider{
+  position:relative;
+  z-index:1;
+  width:100%;
+  max-width:900px;
+  padding:0 5vw;
+}
+.section2-divider::before{
+  content:"";
+  display:block;
+  height:1px;
+  background:rgba(0,0,0,0.7);
+}  
+  
 .primary-text{
   font-family:"PrimaryFont", serif;
   font-size:clamp(42px,8.8vw,72px);
@@ -820,7 +834,9 @@ input, textarea, select, button{
       <p class="secondary-text">ТОЙ БАСТАЛУЫ</p>
     </div>
   </div>
-
+  
+  <div class="section2-divider"></div>
+  
   <div class="section2-content section2-bottom">
     <div class="calendar-wrapper">
       <img src="assets/bg/calendar.png" loading="lazy" decoding="async" class="calendar-img" alt="Күнтізбе">
