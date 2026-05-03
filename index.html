@@ -162,23 +162,23 @@ input, textarea, select, button{
   min-height:100vh;
   min-height:100svh;
   display:flex;
-  align-items:center;
+  align-items:flex-start;
   justify-content:center;
-  padding:0;
+  padding:30vh 20px 0;
   overflow:hidden;
   text-align:center;
   background:#000;
-  color:#000;
+  color:#fff;
 }
 
-/* Размытая копия видео — заполняет края, чтобы не было пустых полос */
+/* Размытая копия картинки — заполняет края, чтобы не было пустых полос */
 .hero-bg-blur{
   position:absolute;
   top:-8%;
   left:-8%;
   width:116%;
   height:116%;
-  object-fit:cover;
+  background:url("assets/bg/Hero.jpg") center/cover no-repeat;
   filter:blur(32px) brightness(0.85);
   transform:scale(1.2);
   opacity:0;
@@ -187,13 +187,13 @@ input, textarea, select, button{
   pointer-events:none;
 }
 
-/* Чёткое видео целиком */
+/* Чёткая картинка целиком */
 .hero-bg-image{
   position:absolute;
   inset:0;
   width:100%;
   height:100%;
-  object-fit:cover;
+  background:url("assets/bg/Hero.jpg") center/cover no-repeat;
   transform:scale(1.12);
   opacity:0;
   z-index:1;
@@ -247,6 +247,29 @@ input, textarea, select, button{
   z-index:2;
   width:100%;
   max-width:900px;
+}
+
+.hero-primary{
+  font-family:"PrimaryFont", serif;
+  font-size:clamp(42px,8.8vw,72px);
+  line-height:1.05;
+  margin:0;
+}
+
+.hero-ampersand{
+  font-family:"PrimaryFont", serif;
+  font-size:clamp(36px,7vw,60px);
+  line-height:1.05;
+  margin:0;
+}
+
+.hero-secondary{
+  font-family:"SecondaryFont", serif;
+  font-size:clamp(18px,4.5vw,28px);
+  letter-spacing:0.5px;
+  text-transform:lowercase;
+  line-height:1.15;
+  margin:0;
 }
 
 /* ================= SECTION 1 ================= */
@@ -750,17 +773,16 @@ input, textarea, select, button{
 <div class="site-content" id="siteContent">
 
 <header class="hero">
-  <video class="hero-bg-blur" id="heroVideoBlur" autoplay loop muted playsinline preload="auto" disablepictureinpicture>
-    <source src="assets/bg/Hero.mp4" type="video/mp4">
-  </video>
-
-  <video class="hero-bg-image" id="heroVideoMain" autoplay loop muted playsinline preload="auto" disablepictureinpicture>
-    <source src="assets/bg/Hero.mp4" type="video/mp4">
-  </video>
+  <div class="hero-bg-blur"></div>
+  <div class="hero-bg-image"></div>
 
   <div class="overlay"></div>
 
   <div class="hero-content">
+    <p class="hero-primary">Мақсат</p>
+    <div class="hero-ampersand">&amp;</div>
+    <p class="hero-primary">Еркемай</p>
+    <p class="hero-secondary">үйлену той</p>
   </div>
 </header>
 
@@ -935,13 +957,11 @@ input, textarea, select, button{
 </audio>
 
 <script>
-const scriptURL = "https://https://script.google.com/macros/s/AKfycbzRbZc8QEmRAxWfSTenjznyJ1-Lx34rkbv0iaxEw30JAaEIATfTV2JDSBKQ1gsVYxFI/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbzRbZc8QEmRAxWfSTenjznyJ1-Lx34rkbv0iaxEw30JAaEIATfTV2JDSBKQ1gsVYxFI/exec";
 
 const inviteOpening = document.getElementById("inviteOpening");
 const siteContent = document.getElementById("siteContent");
 const bgMusic = document.getElementById("bgMusic");
-const heroVideoBlur = document.getElementById("heroVideoBlur");
-const heroVideoMain = document.getElementById("heroVideoMain");
 
 function playMusic(){
   if(!bgMusic) return;
@@ -957,26 +977,8 @@ function playMusic(){
   }
 }
 
-function playHeroVideos(){
-  [heroVideoBlur, heroVideoMain].forEach(function(video){
-    if(!video) return;
-
-    video.muted = true;
-    video.loop = true;
-    video.playsInline = true;
-
-    const p = video.play();
-    if(p !== undefined){
-      p.catch(function(){
-        console.log("Hero video autoplay was blocked, will retry on interaction.");
-      });
-    }
-  });
-}
-
 function openInvitation(){
   playMusic();
-  playHeroVideos();
 
   // Crossfade: site content fades in at the same time the opening fades out
   siteContent.classList.add("show");
@@ -992,13 +994,6 @@ inviteOpening.addEventListener("keydown", function(e){
   if(e.key === "Enter" || e.key === " "){
     e.preventDefault();
     openInvitation();
-  }
-});
-
-// На случай, если вкладка ушла в фон и видео встало — снова запустим
-document.addEventListener("visibilitychange", function(){
-  if(!document.hidden && siteContent.classList.contains("show")){
-    playHeroVideos();
   }
 });
 
