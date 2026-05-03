@@ -36,6 +36,11 @@ html, body{
 
 :root{
   --app-height: 100vh;
+
+  /* ===== ЦВЕТА ФОНА СЕКЦИЙ (полоски по краям картинок) ===== */
+  /* Меняй здесь под свой дизайн */
+  --bg-light: #ffffff;   /* для светлых секций (1, 2, 4, 5) */
+  --bg-dark:  #000000;   /* для тёмных секций (3, 6) */
 }
 
 @supports (height: 100svh){
@@ -171,27 +176,34 @@ input, textarea, select, button{
   color:#000;
 }
 
-/* Размытая копия фото — заполняет края, чтобы не было пустых полос */
+/* Размытая копия видео — заполняет края (cover, специально, чтобы НЕ было полос) */
 .hero-bg-blur{
   position:absolute;
-  inset:-8%;
-  background:url("assets/bg/Hero.mp4") center/cover no-repeat;
+  top:-8%;
+  left:-8%;
+  width:116%;
+  height:116%;
+  object-fit:cover;
   filter:blur(32px) brightness(0.85);
   transform:scale(1.2);
   opacity:0;
   z-index:0;
   will-change:transform, opacity;
+  pointer-events:none;
 }
 
-/* Чёткое фото целиком (contain — ничего не обрезается) */
+/* Чёткое видео — показывается ПОЛНОСТЬЮ (contain), без обрезок */
 .hero-bg-image{
   position:absolute;
   inset:0;
-  background:url("assets/bg/Hero.mp4") center/cover no-repeat;
-  transform:scale(1.12);
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  transform:scale(1.05);
   opacity:0;
   z-index:1;
   will-change:transform, opacity, filter;
+  pointer-events:none;
 }
 
 /* Запуск анимаций строго после клика на конверте */
@@ -216,7 +228,7 @@ input, textarea, select, button{
 
 @keyframes heroImageEntrance{
   0%{
-    transform:scale(1.12);
+    transform:scale(1.05);
     opacity:0;
     filter:blur(8px);
   }
@@ -246,7 +258,11 @@ input, textarea, select, button{
 .section1{
   position:relative;
   min-height: var(--app-height);
-  background:url("assets/bg/section1_bg.jpg") center/cover no-repeat;
+  background-color: var(--bg-light);
+  background-image: url("assets/bg/section1_bg.jpg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
   display:flex;
   align-items:flex-start;
   justify-content:center;
@@ -288,7 +304,11 @@ input, textarea, select, button{
 .section2{
   position:relative;
   min-height: var(--app-height);
-  background:url("assets/bg/section2_bg.png") center/cover no-repeat;
+  background-color: var(--bg-light);
+  background-image: url("assets/bg/section2_bg.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
   display:flex;
   flex-direction:column;
   justify-content:space-between;
@@ -343,7 +363,11 @@ input, textarea, select, button{
 .section3{
   position:relative;
   min-height: var(--app-height);
-  background:url("assets/bg/section3_bg.png") center/cover no-repeat;
+  background-color: var(--bg-dark);
+  background-image: url("assets/bg/section3_bg.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
   display:flex;
   align-items:flex-start;
   justify-content:center;
@@ -404,7 +428,11 @@ input, textarea, select, button{
 .section4{
   position:relative;
   min-height: var(--app-height);
-  background:url("assets/bg/section4_bg.png") center/cover no-repeat;
+  background-color: var(--bg-light);
+  background-image: url("assets/bg/section4_bg.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
   display:flex;
   align-items:flex-start;
   justify-content:center;
@@ -510,7 +538,11 @@ input, textarea, select, button{
 .section5{
   position:relative;
   min-height: var(--app-height);
-  background:url("assets/bg/section5_bg.png") center/cover no-repeat;
+  background-color: var(--bg-light);
+  background-image: url("assets/bg/section5_bg.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
   display:flex;
   align-items:flex-start;
   justify-content:center;
@@ -673,7 +705,11 @@ input, textarea, select, button{
 .section6{
   position:relative;
   min-height: var(--app-height);
-  background:url("assets/bg/section6_bg.png") center/cover no-repeat;
+  background-color: var(--bg-dark);
+  background-image: url("assets/bg/section6_bg.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
   display:flex;
   align-items:flex-start;
   justify-content:center;
@@ -781,8 +817,13 @@ input, textarea, select, button{
 <div class="site-content" id="siteContent">
 
 <header class="hero">
-  <div class="hero-bg-blur"></div>
-  <div class="hero-bg-image"></div>
+  <video class="hero-bg-blur" id="heroVideoBlur" autoplay loop muted playsinline preload="auto" disablepictureinpicture>
+    <source src="assets/bg/Hero.mp4" type="video/mp4">
+  </video>
+
+  <video class="hero-bg-image" id="heroVideoMain" autoplay loop muted playsinline preload="auto" disablepictureinpicture>
+    <source src="assets/bg/Hero.mp4" type="video/mp4">
+  </video>
 
   <div class="overlay"></div>
 
@@ -980,6 +1021,8 @@ const scriptURL = "https://script.google.com/macros/s/AKfycbzLgSU-FFUckggCxVGP-r
 const inviteOpening = document.getElementById("inviteOpening");
 const siteContent = document.getElementById("siteContent");
 const bgMusic = document.getElementById("bgMusic");
+const heroVideoBlur = document.getElementById("heroVideoBlur");
+const heroVideoMain = document.getElementById("heroVideoMain");
 
 function playMusic(){
   if(!bgMusic) return;
@@ -995,8 +1038,26 @@ function playMusic(){
   }
 }
 
+function playHeroVideos(){
+  [heroVideoBlur, heroVideoMain].forEach(function(video){
+    if(!video) return;
+
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+
+    const p = video.play();
+    if(p !== undefined){
+      p.catch(function(){
+        console.log("Hero video autoplay was blocked, will retry on interaction.");
+      });
+    }
+  });
+}
+
 function openInvitation(){
   playMusic();
+  playHeroVideos();
 
   // Crossfade: site content fades in at the same time the opening fades out
   siteContent.classList.add("show");
@@ -1012,6 +1073,13 @@ inviteOpening.addEventListener("keydown", function(e){
   if(e.key === "Enter" || e.key === " "){
     e.preventDefault();
     openInvitation();
+  }
+});
+
+// На случай, если вкладка ушла в фон и видео встало — снова запустим
+document.addEventListener("visibilitychange", function(){
+  if(!document.hidden && siteContent.classList.contains("show")){
+    playHeroVideos();
   }
 });
 
